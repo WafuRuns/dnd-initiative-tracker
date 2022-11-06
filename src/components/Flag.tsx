@@ -2,7 +2,7 @@ import { Box, Grid, Popover, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { FlagProps } from "./types";
 
-const Flag = (props: FlagProps) => {
+const Flag = React.memo((props: FlagProps) => {
     const [anchorEl, setAnchorEl] = useState<any | null>(null);
 
     useEffect(() => {
@@ -95,6 +95,6 @@ const Flag = (props: FlagProps) => {
             </Popover>
         </Grid>
     );
-};
+});
 
 export default Flag;

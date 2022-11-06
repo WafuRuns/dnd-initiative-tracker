@@ -2,7 +2,7 @@ import React from "react";
 import Flag from "./Flag";
 import { FlagsProps } from "./types";
 
-const Flags = (props: FlagsProps) => {
+const Flags = React.memo((props: FlagsProps) => {
     return (
         <>
             {props.flags &&
@@ -21,6 +21,6 @@ const Flags = (props: FlagsProps) => {
                 })}
         </>
     );
-};
+});
 
 export default Flags;
