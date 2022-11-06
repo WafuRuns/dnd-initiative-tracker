@@ -35,6 +35,19 @@ const Flag = (props: FlagProps) => {
         }
     };
 
+    const handleRightClick = (
+        e: React.MouseEvent<HTMLDivElement, MouseEvent>
+    ) => {
+        e.preventDefault();
+        if (
+            props.index !== undefined &&
+            props.innerIndex !== undefined &&
+            props.deleteFlag
+        ) {
+            props.deleteFlag(props.index, props.innerIndex);
+        }
+    };
+
     const handleDecreaseDuration = () => {
         if (
             props.index !== undefined &&
@@ -57,6 +70,7 @@ const Flag = (props: FlagProps) => {
                 backgroundColor: props.flag?.color,
             }}
             onClick={handleClick}
+            onContextMenu={handleRightClick}
             onMouseEnter={handleOpen}
             onMouseLeave={handleClose}
         >
