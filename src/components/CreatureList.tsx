@@ -67,7 +67,7 @@ const CreatureList = React.memo(() => {
             if (currentTurn !== undefined) {
                 let newFlags = [...flags];
                 newFlags[currentTurn].forEach((flag) => {
-                    flag.duration += 2;
+                    flag.duration += 1;
                 });
                 setFlags(newFlags);
             }
@@ -127,7 +127,7 @@ const CreatureList = React.memo(() => {
                 turn !== 0
                     ? getPositions()[turn - 1]
                     : getPositions()[initiatives.length - 1];
-            if (previousTurn) {
+            if (previousTurn !== undefined) {
                 let newFlags = [...flags];
                 newFlags[previousTurn] = newFlags[previousTurn].filter(
                     (flag) => {
